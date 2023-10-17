@@ -1,0 +1,37 @@
+!
+! Dernier changement de configuration à 21:25:45 UTC Lun 28 août 2017
+!
+version 15.4
+service timestamp debug datetime msec
+service timestamp log datetime msec
+no platform punt-keepalive disable-kernel-core
+!
+Nom d’hôte Router
+!
+boot-start-mark
+boot system flash bootflash:packages.conf
+boot system flash bootflash:asr1000rp1-adventerprisek9.03.13.06a.S.154-3.S6a-ext.bin
+boot-end-mark
+!
+vrf définition Mgmt-intf
+    !
+    address-family ipv4
+    exit-address-family
+    !       
+    address-family ipv6
+    exit-address-family
+!
+enable password <omis>
+!
+no aaa new-model
+!!
+nom de lot multiliaison authentifié
+!
+spanning-tree extend system-id
+!
+username test_user privilege 10 password 0 testP@ssw0rD
+!
+redondance
+ mode sso
+!
+cdp run
