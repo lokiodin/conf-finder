@@ -35,3 +35,4 @@ redondance
  mode sso
 !
 cdp run
+ test2fin
